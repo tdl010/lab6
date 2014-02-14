@@ -7,7 +7,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
-
+var palette = require('./routes/palette')
 var index = require('./routes/index');
 var project = require('./routes/project');
 // Example route
@@ -38,6 +38,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/project/:id', project.projectInfo);
+app.get('/palette', palette.randomPalette);
 // Example route
 // app.get('/users', user.list);
 
